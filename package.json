@@ -1,0 +1,51 @@
+{
+  "name": "sst-garph-drizzle",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tsx": "tsx",
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint --quiet --fix",
+    "prepare": "husky install",
+    "airplane-mode": "IS_LOCAL=true nodemon --watch 'src/**/*.ts' --exec 'tsx' packages/functions/src/airplane-mode/airplane-mode-index.ts",
+    "local-db-up": "docker-compose -f packages/core/local/db/postgres.yml up -d",
+    "local-db-down": "docker-compose -f packages/core/local/db/postgres.yml down"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.4",
+    "@types/cors": "^2.8.14",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "aws-cdk-lib": "2.79.1",
+    "constructs": "10.1.156",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "nodemon": "^3.0.1",
+    "prettier": "^2.8.8",
+    "sst": "^2.13.6",
+    "tsx": "^3.12.8",
+    "typescript": "^5.1.3"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run lint",
+      "prettier --write"
+    ]
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
