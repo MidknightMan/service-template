@@ -1,4 +1,10 @@
-# sst-garph-drizzle
+# Service Template
+
+This is designed to get a serverless microservice up and running quickly.
+
+Change names in `package.json`,  `sst.config.ts` and in the database files to your service name to set up. Run `npm run build` to build your database constructs locally. Ensure `AWS_PROFILE` is set in your terminal before doing so.
+
+TODO: Update dependencies.
 
 Click links to learn more and view documentation.
 
